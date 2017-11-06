@@ -17,6 +17,7 @@ import java.util.List;
  */
 
 public class RecipesActivity extends AppCompatActivity {
+    //AAAA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class RecipesActivity extends AppCompatActivity {
         final Repository repo= (Repository) getIntent().getSerializableExtra("Repository");
         final List<Recipe> recipes=repo.getRecipes();
         ListView listView=(ListView) findViewById(R.id.listViewRecipes);
-        ArrayAdapter<Recipe> arrayAdapter=new ArrayAdapter<Recipe>(this,android.R.layout.simple_list_item_1,recipes);
+        ArrayAdapter<Recipe> arrayAdapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,recipes);
         listView.setAdapter(arrayAdapter);
         listView.setClickable(true);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
