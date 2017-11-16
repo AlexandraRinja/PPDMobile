@@ -28,7 +28,7 @@ export default class EditReceipt extends React.Component {
                 Alert.alert("Aici "+global.receipts[i].name);
             }
         }
-        this.props.navigation.goBack();
+        this.props.navigation.navigate("Receipts");
     }
     render() {
         return (
