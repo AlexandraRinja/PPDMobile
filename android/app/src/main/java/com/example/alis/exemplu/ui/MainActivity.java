@@ -1,4 +1,4 @@
-package com.example.alis.exemplu;
+package com.example.alis.exemplu.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,16 +7,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.alis.exemplu.R;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button registerButton=(Button) findViewById(R.id.registerButton);
+
+        Button registerButton=findViewById(R.id.registerButton);
         registerButton.setOnClickListener(this);
-        Button recipesButton=(Button) findViewById(R.id.recipesButton);
+        Button loginButton=findViewById(R.id.loginButton);
+        loginButton.setOnClickListener(this);
+
+        Button recipesButton=findViewById(R.id.recipesButton);
         recipesButton.setOnClickListener(this);
+        Button userListButton= findViewById(R.id.userListButton);
+        userListButton.setOnClickListener(this);
+
     }
     @Override
     public void onClick(View v) {
@@ -27,11 +36,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             }
-            case R.id.recipesButton:{
-                Log.i("clicks","You Clicked recipes");
-                Repository repository=new Repository();
-                Intent i=new Intent(MainActivity.this, RecipesActivity.class);
-                i.putExtra("Repository",repository);
+            case R.id.loginButton:{
+                Log.i("clicks","You Clicked login");
+                Intent i=new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.userListButton:{
+                Log.i("clicks","You Clicked user");
+                Intent i=new Intent(MainActivity.this, UserListActivity.class);
                 startActivity(i);
                 break;
             }

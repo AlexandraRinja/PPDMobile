@@ -4,41 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alis.exemplu.MainActivity">
+    tools:context="com.example.alis.exemplu.ui.MainActivity">
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LifeSum"
-        android:textSize="50sp"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="LifeSum"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="200dp"
-        android:text="Register"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="447dp"
-        />
-    <Button
-        android:id="@+id/recipesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="100dp"
-        android:text="Recipes"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="447dp"
-    />
-</RelativeLayout>
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_alignRight="@+id/textView"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="153dp"
+            android:text="Register"
+            tools:layout_editor_absoluteX="280dp"
+            tools:layout_editor_absoluteY="447dp" />
+
+        <Button
+            android:id="@+id/userListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="21dp"
+            android:text="User List"
+            tools:layout_editor_absoluteX="280dp"
+            tools:layout_editor_absoluteY="447dp" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/registerButton"
+            android:layout_alignBottom="@+id/registerButton"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:text="Login" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

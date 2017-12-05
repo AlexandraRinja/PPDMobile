@@ -1,15 +1,18 @@
-package com.example.alis.exemplu;
+package com.example.alis.exemplu.ui;
 
-import android.app.Activity;
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.alis.exemplu.R;
+import com.example.alis.exemplu.db.AppDatabase;
+import com.example.alis.exemplu.model.User;
 
 /**
  * Created by Alis on 11/5/2017.
@@ -19,34 +22,42 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText et_name,et_password,et_cfpassword,et_email;
     private String name,password,email,cfpassword;
     Button registerBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         et_name=(EditText)findViewById(R.id.nameTB);
         et_password=(EditText)findViewById(R.id.passwordTB);
         et_cfpassword=(EditText)findViewById(R.id.confirmPasswordTB);
         et_email=(EditText) findViewById(R.id.emailAddressTB);
+
+        final AppDatabase db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"test").fallbackToDestructiveMigration().allowMainThreadQueries().build();
+
         registerBtn=(Button) findViewById(R.id.registerButton);
         registerBtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                register();
+                name=et_name.getText().toString().trim();
+                password=et_password.getText().toString().trim();
+                cfpassword=et_cfpassword.getText().toString().trim();
+                email=et_email.getText().toString();
+                if(!validate()){
+                    invalid();
+                }
+                else{
+                    db.userDao().add(new User(name,password,email));
+                    onRegisterSuccess();
+                    Intent i=new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(i);
+                }
             }
         });
     }
-    private void register() {
-        name=et_name.getText().toString().trim();
-        password=et_password.getText().toString().trim();
-        cfpassword=et_cfpassword.getText().toString().trim();
-        email=et_email.getText().toString();
-        if(!validate()){
-            Toast.makeText(this,"Register had failed",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            onRegisterSuccess();
-        }
+    private void invalid() {
+        Toast.makeText(this,"Register had failed",Toast.LENGTH_SHORT).show();
     }
 
     private void onRegisterSuccess() {

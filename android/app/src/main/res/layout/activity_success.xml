@@ -6,11 +6,73 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/loginUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Success register"
+        android:text="Welcome "
         android:textSize="35dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"/>
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/myreceipesButton"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="View my Recipes"
+        />
+    <Button
+        android:id="@+id/allreceipesButton"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="View all Recipes"
+        />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_marginTop="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/nameTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:ems="10"
+                android:hint="Recipe Name"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/descriptionTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:ems="10"
+                android:hint="Description for recipe"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/addRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Add recipe"/>
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log out"/>
+
+    </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
