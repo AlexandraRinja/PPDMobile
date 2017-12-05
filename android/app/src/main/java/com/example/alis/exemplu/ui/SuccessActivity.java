@@ -19,7 +19,6 @@ import com.example.alis.exemplu.model.Recipe;
 import com.example.alis.exemplu.model.Type;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class SuccessActivity extends AppCompatActivity {
     EditText et_name,et_description;
     SharedPreferences sharedPreferences;
     Spinner sp_type;
-    Button bt_myRecipes,bt_allRecipes,bt_addRecipe,bt_logout;
+    Button bt_myRecipes,bt_allRecipes,bt_addRecipe,bt_logout,bt_graph;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +46,7 @@ public class SuccessActivity extends AppCompatActivity {
         final SharedPreferences prefs = getSharedPreferences("loginPref", MODE_PRIVATE);
         String nameRestore = prefs.getString("name", null);
         final int id=prefs.getInt("id",-1);
+
         Log.i("preferences","PREFERENCES"+nameRestore);
 
         tv_loginUser=findViewById(R.id.loginUser);
@@ -103,6 +103,14 @@ public class SuccessActivity extends AppCompatActivity {
                 prefs.edit().remove("name");
                 prefs.edit().remove("email");
                 Intent i = new Intent(SuccessActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+        bt_graph=findViewById(R.id.graphButton);
+        bt_graph.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SuccessActivity.this, GraphActivity.class);
                 startActivity(i);
             }
         });

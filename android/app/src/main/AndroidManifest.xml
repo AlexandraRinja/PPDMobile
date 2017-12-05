@@ -50,6 +50,12 @@
             android:name=".ui.DetailActivity0"
             android:label="LifeSum app">
         </activity>
+
+        <activity
+            android:name=".ui.GraphActivity"
+            android:label="LifeSum app">
+        </activity>
+
     </application>
 
 </manifest>

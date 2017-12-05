@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button registerButton=findViewById(R.id.registerButton);
         registerButton.setOnClickListener(this);
+
         Button loginButton=findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
 
-        Button recipesButton=findViewById(R.id.recipesButton);
-        recipesButton.setOnClickListener(this);
+
         Button userListButton= findViewById(R.id.userListButton);
         userListButton.setOnClickListener(this);
 

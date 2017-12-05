@@ -22,7 +22,7 @@ public class RecipesNewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipesnew);
+        setContentView(R.layout.activity_recipes);
 
         final List<Recipe> recipes= (List<Recipe>) getIntent().getSerializableExtra("Recipes");
         ListView listView=(ListView) findViewById(R.id.listViewRecipes);
