@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Linking, TextInput, View,StyleSheet,Text,Alert} from 'react-native';
 
+
 export default class EditReceipt extends React.Component {
 
     constructor(props) {
@@ -24,6 +25,10 @@ export default class EditReceipt extends React.Component {
         this.repo.handleChangedObject(this.state);
         this.props.navigation.navigate("Receipts",{repo:this.repo});
     }
+    _onPress2() {
+        this.repo.handleClickedDelete(this.state);
+        this.props.navigation.navigate("Receipts",{repo:this.repo});
+    }
     render() {
         return (
             <View style={styles.myView}>
@@ -41,6 +46,9 @@ export default class EditReceipt extends React.Component {
                 </View>
                 <View style={styles.myButton}>
                     <Button onPress={()=>this._onPress()} title="Submit" color='#FDEBD0'/>
+                </View>
+                <View style={styles.myButton}>
+                    <Button onPress={()=>this._onPress2()} title="Delete" color='#FDEBD0'/>
                 </View>
             </View>
         );

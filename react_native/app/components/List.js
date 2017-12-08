@@ -60,12 +60,18 @@ export class List extends React.Component {
     }
 
 
-    async handleClickedDelete(index)
+    async handleClickedDelete(receipt)
     {
         //console.log("Delete: ", index);
 
         let listOfRecipes = this.data.listOfRecipes;
-
+        let index=-1;
+        for (let i = 0; i < listOfRecipes.length; i++) {
+            if (listOfRecipes[i].recipe.id === receipt.id) {
+                console.log("PUKA");
+                index=i;
+            }
+        }
         listOfRecipes.splice(index, 1);
 
         await AsyncStorage.setItem("listOfRecipes", JSON.stringify({listOfRecipes: listOfRecipes, max_id: this.data.max_id}));
