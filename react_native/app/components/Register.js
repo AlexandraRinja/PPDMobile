@@ -50,7 +50,7 @@ export default class Register extends React.Component{
 const styles=StyleSheet.create({
     myView:{
         height:600,
-        width:350,
+        width:400,
         backgroundColor:'#FDEBD0'
     },
     myText:{

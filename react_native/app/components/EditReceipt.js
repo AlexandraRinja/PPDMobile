@@ -5,6 +5,7 @@ export default class EditReceipt extends React.Component {
 
     constructor(props) {
         super(props);
+        this.repo=props.navigation.state.params.repo;
 
         this.state = {
             id: 0,
@@ -12,23 +13,16 @@ export default class EditReceipt extends React.Component {
             ingredients: ""
         };
 
-        if (this.props.navigation.state.params.id !== undefined) {
-            let currentReceipt = this.props.navigation.state.params;
+            let currentReceipt = this.props.navigation.state.params.receipt.recipe;
             this.state.id = currentReceipt.id;
             this.state.name = currentReceipt.name;
             this.state.ingredients = currentReceipt.ingredients;
-        }
+        console.log("AICI",currentReceipt);
 
     }
     _onPress() {
-        receipt = this.state;
-        for (let i = 0; i < global.receipts.length; i++) {
-            if (global.receipts[i].id === receipt.id) {
-                global.receipts[i] = receipt;
-                Alert.alert("Aici "+global.receipts[i].name);
-            }
-        }
-        this.props.navigation.navigate("Receipts");
+        this.repo.handleChangedObject(this.state);
+        this.props.navigation.navigate("Receipts",{repo:this.repo});
     }
     render() {
         return (
@@ -55,7 +49,7 @@ export default class EditReceipt extends React.Component {
 const styles=StyleSheet.create({
     myView:{
         height:600,
-        width:350,
+        width:400,
         backgroundColor:'#FDEBD0'
     },
     myText:{

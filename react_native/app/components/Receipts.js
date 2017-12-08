@@ -4,20 +4,22 @@ import {AppRegistry,Text,View,StyleSheet,Button,Alert,ListView,TouchableOpacity}
 export default class Receipts extends React.Component{
     constructor(props){
         super(props);
+        this.repo=props.navigation.state.params.repo;
         let dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.Id !== r2.Id});
 
         this.state = {
-            dataSource: dataSource.cloneWithRows(global.receipts)
-        }
+            dataSource: dataSource.cloneWithRows(this.repo.data.listOfRecipes)
+        };
+        console.log(this.state);
     }
     edit(receipt) {
-        this.props.navigation.navigate("EditReceipt", receipt);
+        this.props.navigation.navigate("EditReceipt", {receipt: receipt, repo:this.repo});
     }
     renderRow(receipt) {
         return (
             <TouchableOpacity onPress={() => this.edit(receipt)}>
                 <View>
-                    <Text style={styles.listItem}>{receipt.name}</Text>
+                    <Text style={styles.listItem}>{receipt.recipe.name}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -37,7 +39,7 @@ export default class Receipts extends React.Component{
 const styles=StyleSheet.create({
     myView:{
         height:600,
-        width:350,
+        width:400,
         backgroundColor:'#FDEBD0'
     },
     myText:{

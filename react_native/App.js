@@ -1,10 +1,12 @@
 import React from 'react';
 
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator,AsyncStorage} from 'react-navigation';
 import Main from './app/components/Main';
 import Register from "./app/components/Register";
 import Receipts from "./app/components/Receipts";
 import EditReceipt from "./app/components/EditReceipt";
+import {getRecipesList} from './app/repository/RecipesRepo';
+import AddRecipes from "./app/components/AddRecipes";
 global.receipts = [
     {
         id: 1,
@@ -19,19 +21,13 @@ global.receipts = [
         name: 'receipt3',
         ingredients: 'ingredient3'
     }];
+
+
 const ModalStack=StackNavigator({
-    Home: {
-        screen: Main
-    },
-    Register:{
-        screen:Register
-    },
-    Receipts:{
-        screen:Receipts
-    },
-    EditReceipt: {
-        screen: EditReceipt,
-        path: 'EditReceipt/:receipt'
-    }
+    Home: {screen: Main},
+    Register:{screen:Register},
+    Receipts:{screen:Receipts},
+    AddRecipes:{screen:AddRecipes},
+    EditReceipt: {screen: EditReceipt, path: 'EditReceipt/:receipt'}
 });
 export default ModalStack;
