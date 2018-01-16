@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "928921014805",
+    "firebase_url": "https://alislifesum.firebaseio.com",
+    "project_id": "alislifesum",
+    "storage_bucket": "alislifesum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928921014805:android:ab321096806451b4",
+        "android_client_info": {
+          "package_name": "com.ppdmobile.lifesum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928921014805-ok1a7obr5k45m2ckil8rh5nhqekm1mfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUT33ok2q63NISa-4Jco2r53i4K3VqgJw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

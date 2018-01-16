@@ -12,11 +12,10 @@ import java.io.Serializable;
  * Created by Alis on 11/5/2017.
  */
 
-@Entity(foreignKeys = @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "user_id"))
 
 public class Recipe implements Serializable{
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    private String id;
+
     private String name;
 
     @TypeConverters(TypeConv.class)
@@ -25,15 +24,19 @@ public class Recipe implements Serializable{
     private String description;
     private float nrStars;
 
-    @ColumnInfo(name = "user_id")
-    private int userId;
+    private String userEmail;
 
-    public Recipe(String name, Type type,String description, int userId) {
+    public Recipe(String id, String name, Type type,String description, String userEmail) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.description=description;
-        this.userId = userId;
+        this.userEmail = userEmail;
         this.nrStars=0;
+    }
+
+    public Recipe(){
+
     }
 
 
@@ -53,19 +56,19 @@ public class Recipe implements Serializable{
         return this.name;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUserId() {
+        return userEmail;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

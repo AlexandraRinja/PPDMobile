@@ -11,8 +11,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.alis.exemplu.R;
-import com.example.alis.exemplu.db.AppDatabase;
 import com.example.alis.exemplu.model.Recipe;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Alis on 12/5/2017.
@@ -26,8 +27,8 @@ public class DetailActivity0 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail0);
-        final AppDatabase db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"test").fallbackToDestructiveMigration().allowMainThreadQueries().build();
         final Recipe recipe= (Recipe) getIntent().getSerializableExtra("Recipe");
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("recipesAndroid");
         tv_name=findViewById(R.id.nameTV);
         tv_name.setText(recipe.getName());
 
@@ -52,7 +53,7 @@ public class DetailActivity0 extends AppCompatActivity {
                 else {
                     recipe.setNrStars((rb_score.getRating() + recipe.getNrStars()) / 2);
                 }
-                db.recipeDao().update(recipe);
+                databaseReference.child(recipe.getId()).setValue(recipe);
                 Intent i=new Intent(DetailActivity0.this, SuccessActivity.class);
                 startActivity(i);
             }

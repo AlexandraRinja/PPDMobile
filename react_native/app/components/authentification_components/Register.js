@@ -1,5 +1,6 @@
 import React from 'react';
 import {AppRegistry,Text,View,StyleSheet,TextInput,Button,Linking} from 'react-native'
+import firebase from "firebase/index";
 
 export default class Register extends React.Component{
     constructor(props){
@@ -12,7 +13,11 @@ export default class Register extends React.Component{
 
     }
     _onPress(event){
-        Linking.openURL("mailto:"+this.state.email+"?subject=LifeSum&body=Hello "+this.state.name+" welcome to LifeSum");
+        // Linking.openURL("mailto:"+this.state.email+"?subject=LifeSum&body=Hello "+this.state.name+" welcome to LifeSum");
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error){
+           console.log(error.message);
+           alert(error.message);
+        });
         this.props.navigation.goBack();
     }
     render(){

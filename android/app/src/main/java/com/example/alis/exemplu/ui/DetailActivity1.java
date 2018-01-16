@@ -12,9 +12,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.alis.exemplu.R;
-import com.example.alis.exemplu.db.AppDatabase;
 import com.example.alis.exemplu.model.Recipe;
 import com.example.alis.exemplu.model.Type;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -35,10 +36,10 @@ public class DetailActivity1 extends AppCompatActivity {
         List<Type> types= Arrays.asList(Type.values());
         ArrayAdapter<Type> adapter = new ArrayAdapter<Type>(this, android.R.layout.simple_spinner_item, types);
 
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("recipesAndroid");
+
         sp_type = (Spinner)findViewById(R.id.spinnerType);
         sp_type.setAdapter(adapter);
-
-        final AppDatabase db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"test").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
         final Recipe recipe= (Recipe) getIntent().getSerializableExtra("Recipe");
         sp_type.setSelection(recipe.getType().ordinal());
@@ -53,7 +54,7 @@ public class DetailActivity1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("clicks","You Clicked delete");
-                db.recipeDao().delete(recipe);
+                databaseReference.child(recipe.getId()).removeValue();
                 Intent i=new Intent(DetailActivity1.this, SuccessActivity.class);
                 startActivity(i);
             }
@@ -66,7 +67,7 @@ public class DetailActivity1 extends AppCompatActivity {
                 recipe.setName(et_name.getText().toString());
                 recipe.setDescription(et_description.getText().toString());
                 recipe.setType(Type.valueOf(sp_type.getSelectedItem().toString()));
-                db.recipeDao().update(recipe);
+                databaseReference.child(recipe.getId()).setValue(recipe);
                 Intent i=new Intent(DetailActivity1.this, SuccessActivity.class);
                 startActivity(i);
             }

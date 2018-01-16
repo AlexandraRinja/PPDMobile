@@ -11,42 +11,10 @@
         android:paddingRight="16dp"
         android:paddingTop="16dp"
         tools:context="com.example.alis.exemplu.ui.RegisterActivity">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_marginTop="100dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/emailAddressTB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:ems="10"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress" />
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/passwordTB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
-                    android:ems="10"
-                    android:hint="Password"
-                    android:inputType="textPassword|numberPassword" />
-            </android.support.design.widget.TextInputLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:id="@+id/loginButton"/>
-        </LinearLayout>
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/googleButton"></com.google.android.gms.common.SignInButton>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

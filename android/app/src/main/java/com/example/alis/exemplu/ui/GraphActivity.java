@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.alis.exemplu.R;
-import com.example.alis.exemplu.db.AppDatabase;
 import com.example.alis.exemplu.model.Recipe;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,12 +28,11 @@ public class GraphActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
-        final AppDatabase db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"test").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
         final SharedPreferences prefs = getSharedPreferences("loginPref", MODE_PRIVATE);
         final int id=prefs.getInt("id",-1);
 
-        List<Recipe> recipes=db.recipeDao().getAllById(id);
+        List<Recipe> recipes=new ArrayList<>();
         HashMap<Integer,Integer>points=new HashMap<>();
         for(int i=0;i<6;i++){
             points.put(i,0);

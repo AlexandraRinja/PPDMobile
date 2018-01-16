@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "291087553780",
+    "firebase_url": "https://pmobile-77477.firebaseio.com",
+    "project_id": "pmobile-77477",
+    "storage_bucket": "pmobile-77477.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291087553780:android:6a1dc4024e8f121e",
+        "android_client_info": {
+          "package_name": "com.example.alis.exemplu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291087553780-ckj28f6ftcdu7blo6jh1o7r570612uti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alis.exemplu",
+            "certificate_hash": "6f0da05a3494c487d6496ab9ceaf3d0258c61a85"
+          }
+        },
+        {
+          "client_id": "291087553780-5ehb7rg13h9rcfi21ctkrnapvllf5sd6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alis.exemplu",
+            "certificate_hash": "e56446ba038f614526455433cbfd018ce78cabb8"
+          }
+        },
+        {
+          "client_id": "291087553780-0dm0g30d4svt5a9fv7orrhelr872b101.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWoWfrf5HVQqExQXBKOsOOAPxO3I_Cu8U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291087553780-0dm0g30d4svt5a9fv7orrhelr872b101.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,10 +18,6 @@
         </activity>
 
         <activity
-            android:name=".ui.RegisterActivity"
-            android:label="@string/title_activity_main">
-        </activity>
-        <activity
             android:name=".ui.SuccessActivity"
             android:label="@string/title_activity_success">
         </activity>

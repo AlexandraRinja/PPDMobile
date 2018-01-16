@@ -1,5 +1,7 @@
 import React from 'react';
 import {Button, Linking, TextInput, View,StyleSheet,Text,Alert} from 'react-native';
+import {FirebaseWorker} from "../shared_components/FirebaseWorker";
+import Login from "../authentification_components/Login";
 
 export default class AddRecipes extends React.Component {
 
@@ -16,9 +18,10 @@ export default class AddRecipes extends React.Component {
 
 }
 _onPress() {
-        this.repo.handleAddRecipe(this.state);
-        this.props.navigation.navigate("Home");
-}
+        const {navigate} = this.props.navigation;
+        FirebaseWorker.addRecipe(this.state.name, this.state.ingredients);
+        Login.handleUserSuccessLogin(navigate);
+    }
 render() {
     return (
         <View style={styles.myView}>

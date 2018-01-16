@@ -9,15 +9,13 @@ import android.widget.Button;
 
 import com.example.alis.exemplu.R;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button registerButton=findViewById(R.id.registerButton);
-        registerButton.setOnClickListener(this);
 
         Button loginButton=findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
@@ -30,12 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.registerButton:{
-                Log.i("clicks","You Clicked register");
-                Intent i=new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(i);
-                break;
-            }
             case R.id.loginButton:{
                 Log.i("clicks","You Clicked login");
                 Intent i=new Intent(MainActivity.this, LoginActivity.class);

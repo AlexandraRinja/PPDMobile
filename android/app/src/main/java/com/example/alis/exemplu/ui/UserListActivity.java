@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.alis.exemplu.R;
-import com.example.alis.exemplu.db.AppDatabase;
 import com.example.alis.exemplu.model.User;
 
 
@@ -29,8 +28,6 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listusers);
 
-        AppDatabase db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"test").fallbackToDestructiveMigration().allowMainThreadQueries().build();
-        names=db.userDao().getAll();
 
         recyclerView=findViewById(R.id.recycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
